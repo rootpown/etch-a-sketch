@@ -20,7 +20,6 @@ function elementGrid() {
       const div = document.createElement("div");
       div.classList.add("elementBOX");
       GRIDBOX.append(div);
-
       div.addEventListener(
         "mouseover",
         () => (div.style.backgroundColor = "#000")
