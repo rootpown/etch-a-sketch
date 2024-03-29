@@ -55,6 +55,7 @@ function randomColor() {
 }
 
 function drawWithHold(event) {
+  currentColor = randomColor();
   event.target.style.backgroundColor = currentColor;
 }
 
