@@ -22,15 +22,15 @@ let currentColor = "#000";
 SIZE_INPUT.addEventListener("change", () => {
   gridSize = +SIZE_INPUT.value;
   GRIDSIZE();
-})
-function GRIDSIZE () {
-  GRIDBOX.innerHTML = '';
+});
+function GRIDSIZE() {
+  GRIDBOX.innerHTML = "";
   elementGrid();
 }
 function elementGrid() {
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
-      const div = document.createElement("div"); 
+      const div = document.createElement("div");
       div.classList.add("elementBOX");
       GRIDBOX.append(div);
       div.addEventListener("mousedown", function (event) {
@@ -89,12 +89,3 @@ BTNCLEAR.addEventListener("click", function () {
 });
 
 elementGrid();
-
-/*
-
-ДОБАВИТЬ СЕТКУ РАЗМЕР
-
-ДОБАВИТЬ FOOTER
-
-
-*/
