@@ -1,19 +1,36 @@
 const GRIDBOX = document.getElementById("grid-box");
+const SIZE_INPUT = document.getElementById("size-grid");
 const BTNCLEAR = document.getElementById("btn-clear");
 const BTNRANDOM = document.getElementById("btn-random");
 const BTNCOLOR = document.getElementById("btn-color");
 const elementBOX = document.getElementsByClassName("elementBOX");
 const GRIDCONT = document.getElementById("grid-content");
 const CLEARBUTTON = document.createElement("Button");
-
 let gridtemp = 600;
-let gridSize = 10;
+let gridSize = parseInt(SIZE_INPUT.value);
 let currentColor = "#000";
+/*
 
+/////////////////////////////////////////////////////////////////
+/
+/           COPYRIGHT (c) rootpown
+/
+/////////////////////////////////////////////////////////////////
+
+
+ */
+SIZE_INPUT.addEventListener("change", () => {
+  gridSize = +SIZE_INPUT.value;
+  GRIDSIZE();
+})
+function GRIDSIZE () {
+  GRIDBOX.innerHTML = '';
+  elementGrid();
+}
 function elementGrid() {
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
-      const div = document.createElement("div");
+      const div = document.createElement("div"); 
       div.classList.add("elementBOX");
       GRIDBOX.append(div);
       div.addEventListener("mousedown", function (event) {
@@ -39,10 +56,11 @@ function elementGrid() {
     elementBOX[i].style.height = gridtemp / gridSize + "px";
   }
 }
-function preventDefaultMouseDown(event) {
-  event.preventDefault();
-}
-document.addEventListener("mousedown", preventDefaultMouseDown);
+
+// function preventDefaultMouseDown(event) {
+//   event.preventDefault();
+// }
+// document.addEventListener("mousedown", preventDefaultMouseDown);
 
 function randomColor() {
   let color = "#";
@@ -55,7 +73,6 @@ function randomColor() {
 }
 
 function drawWithHold(event) {
-  currentColor = randomColor();
   event.target.style.backgroundColor = currentColor;
 }
 
@@ -72,3 +89,12 @@ BTNCLEAR.addEventListener("click", function () {
 });
 
 elementGrid();
+
+/*
+
+ДОБАВИТЬ СЕТКУ РАЗМЕР
+
+ДОБАВИТЬ FOOTER
+
+
+*/
